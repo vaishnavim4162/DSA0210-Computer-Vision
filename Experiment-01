@@ -1,0 +1,11 @@
+import cv2
+from google.colab.patches import cv2_imshow
+
+img = cv2.imread("/content/image.jpg.png")
+
+if img is None:
+    print("Image not found! Check the path.")
+else:
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    cv2_imshow(img)
+    cv2_imshow(gray)
