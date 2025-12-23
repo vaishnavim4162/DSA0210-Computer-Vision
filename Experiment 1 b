@@ -1,0 +1,18 @@
+import cv2
+from google.colab.patches import cv2_imshow
+
+# Read the image
+img = cv2.imread(r"/content/image .jpg.png")   # replace with your image name
+
+if img is None:
+    print("Image not found! Check the path.")
+else:
+    # Apply Gaussian Blur
+    blur = cv2.GaussianBlur(img, (15, 15), 0)
+
+    # Display images
+    cv2_imshow(img)
+    cv2_imshow(blur)
+
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
