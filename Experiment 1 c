@@ -1,0 +1,22 @@
+import cv2
+import matplotlib.pyplot as plt
+# Paste your image path here
+image_path = "/content/Screenshot 2025-12-23 134039.png"
+# Read image
+image = cv2.imread(image_path)
+# Convert to grayscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+# Apply Canny edge detection
+edges = cv2.Canny(gray, 100, 200)
+# Show original image
+plt.figure(figsize=(10,4))
+plt.subplot(1,2,1)
+plt.title("Original Image")
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+plt.axis("off")
+# Show edge-detected image
+plt.subplot(1,2,2)
+plt.title("Canny Edge Image")
+plt.imshow(edges, cmap='gray')
+plt.axis("off")
+plt.show()
