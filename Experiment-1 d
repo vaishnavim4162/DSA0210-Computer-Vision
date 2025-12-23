@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow # Import cv2_imshow
+
+# Read the image
+img = cv2.imread(r"/content/Screenshot 2025-12-23 134622.png")   # replace with your image file name
+if img is None:
+    print("Image not found! Check the path.")
+else:
+    # Convert to grayscale (dilation works best on binary or grayscale images)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # Create a kernel (matrix for dilation)
+    kernel = np.ones((5, 5), np.uint8)
+    # Apply dilation
+    dilated = cv2.dilate(gray, kernel, iterations=1)
+    # Display results
+    cv2_imshow(img)  # Use cv2_imshow
+    cv2_imshow(dilated) # Use cv2_imshow
+
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
